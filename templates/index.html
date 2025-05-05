@@ -460,7 +460,7 @@
             align-items: center;
             padding: 120px 0;
             position: relative;
-            background: linear-gradient(135deg, var(--background-color) 0%, var(--background-light) 100%);
+            background: linear-gradient(135deg, rgba(197, 225, 240, 0.3) 0%, rgba(168, 212, 232, 0.3) 100%);
             overflow: hidden;
         }
 
@@ -471,16 +471,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.3;
+            opacity: 0.5;
             z-index: 0;
             pointer-events: none;
+            filter: brightness(1.4) contrast(1.05) saturate(1.1);
         }
 
         .hero-section .container {
             position: relative;
             z-index: 1;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
+            background: transparent;
             padding: 2rem;
             border-radius: 15px;
         }
@@ -492,33 +492,25 @@
             line-height: 1.2;
             margin-bottom: 2rem;
             text-align: center;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+            color: #000000;
         }
 
-        .hero-heading .text-primary {
-            background: linear-gradient(135deg, #0066cc 0%, #00cc99 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .hero-heading .text-black {
+            color: #000000;
             display: inline-block;
-        }
-
-        .hero-heading .text-gradient {
-            background: linear-gradient(135deg, #00cc99 0%, #0066cc 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
         }
 
         .hero-subheading {
             font-size: 1.25rem;
             font-weight: 500;
-            color: var(--body-text);
+            color: #000000;
             max-width: 800px;
             margin: 0 auto 3rem;
             text-align: center;
             line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
         }
 
         .hero-buttons {
@@ -529,39 +521,41 @@
         }
 
         .btn-hero-primary {
-            background: var(--cta-primary);
-            color: white;
+            background: rgba(0, 0, 0, 0.9);
+            color: #ffffff;
             font-weight: 600;
             padding: 1rem 2.5rem;
             border-radius: 50px;
             border: none;
-            box-shadow: 0 4px 15px rgba(0, 125, 252, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
 
         .btn-hero-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 125, 252, 0.3);
-            background: #0069d9;
-            color: white;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #000000;
+            color: #ffffff;
         }
 
         .btn-hero-secondary {
-            background: white;
-            color: var(--cta-primary);
+            background: rgba(0, 0, 0, 0.2);
+            color: #000000;
             font-weight: 600;
             padding: 1rem 2.5rem;
             border-radius: 50px;
-            border: 2px solid var(--cta-primary);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
 
         .btn-hero-secondary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            background: rgba(0, 125, 252, 0.05);
-            color: var(--cta-primary);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: #000000;
         }
 
         @media (max-width: 768px) {
@@ -613,15 +607,30 @@
             padding: 20px 0;
         }
 
+        .competency-slides-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
         .competency-slide {
-            display: none;
-            opacity: 0;
+            min-width: 100%;
+            opacity: 1;
+            display: block;
             transition: opacity 0.5s ease-in-out;
         }
 
-        .competency-slide.active {
-            display: block;
-            opacity: 1;
+        .competency-slide .row {
+            align-items: center;
+            height: 100%;
+        }
+
+        .competency-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .competency-content {
@@ -629,6 +638,9 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            max-height: 500px;
+            overflow-y: auto;
         }
 
         .competency-content h3 {
@@ -668,9 +680,14 @@
         }
 
         @media (max-width: 768px) {
+            .competency-slide img {
+                height: 300px;
+                margin-bottom: 20px;
+            }
+            
             .competency-content {
-                padding: 1.5rem;
-                margin-top: 2rem;
+                max-height: none;
+                overflow-y: visible;
             }
         }
 
@@ -686,14 +703,15 @@
             background: var(--heading-color);
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
 
         .nav-btn:hover {
@@ -718,30 +736,6 @@
         .dot.active {
             background: var(--heading-color);
             transform: scale(1.2);
-        }
-
-        .competency-slide img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .competency-slide .col-md-6:first-child {
-            height: 400px;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .competency-slide img {
-                height: 300px;
-            }
-            
-            .competency-slide .col-md-6:first-child {
-                height: 300px;
-            }
         }
 
         .products-container {
@@ -1159,9 +1153,9 @@
         </video>
         <div class="container" data-aos="fade-up">
             <h1 class="hero-heading">
-                <span class="text-primary">Engineering</span><br>
-                <span class="text-gradient">the Future</span><br>
-                <span class="text-primary">of</span> <span class="text-gradient">Pharmaceuticals</span>
+                <span class="text-black">Engineering</span><br>
+                <span class="text-black">the Future</span><br>
+                <span class="text-black">of</span> <span class="text-black">Pharmaceuticals</span>
             </h1>
             <p class="hero-subheading">
                 VmarsBio Pharma delivers cutting-edge engineering solutions for the biopharmaceutical industry, 
@@ -1291,79 +1285,81 @@
             <p class="text-center lead mb-5" data-aos="fade-up" data-aos-delay="100">Expertise That Drives Innovation</p>
             
             <div class="competency-carousel">
-                <div class="competency-slide active" id="engineering">
-                    <div class="row align-items-center">
-                        <div class="col-md-6" data-aos="fade-right">
-                            <img src="{{ url_for('static', filename='images/engineering.jpg') }}" alt="Engineering" class="img-fluid rounded shadow">
-                        </div>
-                        <div class="col-md-6" data-aos="fade-left">
-                            <div class="competency-content">
-                                <h3 class="mb-3">Engineering</h3>
-                                <p class="lead mb-3">Establishing design requirements are the major task covered under Basic Design.</p>
-                                <p class="mb-4">The Basic design is the preliminary stage, which drive the project from conceptual stage to the detailed design. The design requirements control the design of final project outcome. These include basic things like the functions, attributes, and specifications - determined after assessing user requirement. Design requirements include hard and soft specifications and testability of the same.</p>
-                                
-                                <h5 class="mb-3">Deliverables of Basic Design:</h5>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h6>Project Execution & Management</h6>
-                                        <ul class="list-unstyled mb-4">
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Project Quality Plan</li>
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Project Schedule</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6>Process Design & Engineering</h6>
-                                        <ul class="list-unstyled mb-4">
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Process Flow Diagram</li>
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Piping & Instrumentation Diagram</li>
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Major Component List</li>
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Piping Specs</li>
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Vessel Design Specs</li>
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Automation Architecture</li>
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>System Layout</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6>Automation Design & Engineering</h6>
-                                        <ul class="list-unstyled mb-4">
-                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Hardware & Software Design Specs</li>
-                                        </ul>
+                <div class="competency-slides-container">
+                    <div class="competency-slide" id="engineering">
+                        <div class="row align-items-center">
+                            <div class="col-md-6" data-aos="fade-right">
+                                <img src="{{ url_for('static', filename='images/engineering.jpg') }}" alt="Engineering" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-6" data-aos="fade-left">
+                                <div class="competency-content">
+                                    <h3 class="mb-3">Engineering</h3>
+                                    <p class="lead mb-3">Establishing design requirements are the major task covered under Basic Design.</p>
+                                    <p class="mb-4">The Basic design is the preliminary stage, which drive the project from conceptual stage to the detailed design. The design requirements control the design of final project outcome. These include basic things like the functions, attributes, and specifications - determined after assessing user requirement. Design requirements include hard and soft specifications and testability of the same.</p>
+                                    
+                                    <h5 class="mb-3">Deliverables of Basic Design:</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Project Execution & Management</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Project Quality Plan</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Project Schedule</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Process Design & Engineering</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Process Flow Diagram</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Piping & Instrumentation Diagram</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Major Component List</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Piping Specs</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Vessel Design Specs</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Automation Architecture</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>System Layout</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Automation Design & Engineering</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Hardware & Software Design Specs</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="competency-slide" id="management">
-                    <div class="row align-items-center">
-                        <div class="col-md-6" data-aos="fade-right">
-                            <img src="{{ url_for('static', filename='images/management.jpg') }}" alt="Project Management" class="img-fluid rounded shadow">
-                        </div>
-                        <div class="col-md-6" data-aos="fade-left">
-                            <div class="competency-content">
-                                <h3 class="mb-3">Project Management</h3>
-                                <p class="lead mb-3">Our objective is to make successful projects which comply with the client's objectives.</p>
-                                <p class="mb-4">We are specialized in leading and integrating the work of cross functional teams and other stake holders in an organized way to achieve goals and meet success criteria at a specified time. We understand the constraints and plan the necessary to achieve all of the project goals accordingly. We Predict and Prevent delays. Our team is proactive and resilient!</p>
-                                <p class="mb-4">All the five phases of project lifecycle; initiation, planning, execution, monitoring, and closure are safer in our hands with the application of most brilliant project management tools.</p>
-                                <p class="mb-4 fw-bold">Your Success is our Success!</p>
+                    <div class="competency-slide" id="management">
+                        <div class="row align-items-center">
+                            <div class="col-md-6" data-aos="fade-right">
+                                <img src="{{ url_for('static', filename='images/management.jpg') }}" alt="Project Management" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-6" data-aos="fade-left">
+                                <div class="competency-content">
+                                    <h3 class="mb-3">Project Management</h3>
+                                    <p class="lead mb-3">Our objective is to make successful projects which comply with the client's objectives.</p>
+                                    <p class="mb-4">We are specialized in leading and integrating the work of cross functional teams and other stake holders in an organized way to achieve goals and meet success criteria at a specified time. We understand the constraints and plan the necessary to achieve all of the project goals accordingly. We Predict and Prevent delays. Our team is proactive and resilient!</p>
+                                    <p class="mb-4">All the five phases of project lifecycle; initiation, planning, execution, monitoring, and closure are safer in our hands with the application of most brilliant project management tools.</p>
+                                    <p class="mb-4 fw-bold">Your Success is our Success!</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="competency-slide" id="automation">
-                    <div class="row align-items-center">
-                        <div class="col-md-6" data-aos="fade-right">
-                            <img src="{{ url_for('static', filename='images/automation.jpg') }}" alt="Process Automation" class="img-fluid rounded shadow">
-                        </div>
-                        <div class="col-md-6" data-aos="fade-left">
-                            <div class="competency-content">
-                                <h3 class="mb-3">Process Automation</h3>
-                                <p class="lead mb-3">Our Automation Solution provides the perfect blend between the user and equipment interface.</p>
-                                <p class="mb-4">Real time monitoring and reproducible process analysis is the core of automation solution. All the Software is built as per ISA 88 (S88) standards and each stage of automation development strictly adhere to 21 CFR Part 11 and GAMP5 criteria to make sure that the solution provided on par with the global standards.</p>
-                                <p class="mb-4">The Solution could be tailor made in semiautomatic or automatic way as per the requirements, for a standalone system or for a full fledged plant wide automation. The foundation of each solution is perfectly laid, to make sure that ease of operation at stand alone system level to full flexibility to integrate and ease of operation at higher level of automation such as DCS and MES systems.</p>
-                                <p class="mb-4">The Integration of our Automation concept to other Systems/Programs using quite a few communication protocols is a seamless task.</p>
+                    <div class="competency-slide" id="automation">
+                        <div class="row align-items-center">
+                            <div class="col-md-6" data-aos="fade-right">
+                                <img src="{{ url_for('static', filename='images/automation.jpg') }}" alt="Process Automation" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-6" data-aos="fade-left">
+                                <div class="competency-content">
+                                    <h3 class="mb-3">Process Automation</h3>
+                                    <p class="lead mb-3">Our Automation Solution provides the perfect blend between the user and equipment interface.</p>
+                                    <p class="mb-4">Real time monitoring and reproducible process analysis is the core of automation solution. All the Software is built as per ISA 88 (S88) standards and each stage of automation development strictly adhere to 21 CFR Part 11 and GAMP5 criteria to make sure that the solution provided on par with the global standards.</p>
+                                    <p class="mb-4">The Solution could be tailor made in semiautomatic or automatic way as per the requirements, for a standalone system or for a full fledged plant wide automation. The foundation of each solution is perfectly laid, to make sure that ease of operation at stand alone system level to full flexibility to integrate and ease of operation at higher level of automation such as DCS and MES systems.</p>
+                                    <p class="mb-4">The Integration of our Automation concept to other Systems/Programs using quite a few communication protocols is a seamless task.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1575,12 +1571,32 @@
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="contact-info">
                         <h4 class="mb-4">Contact Information</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> 171/A, 10th Main, Laggere Main Rd,<br>
-                        Phase 3, Peenya, Bengaluru,<br>
-                        Karnataka 560058<br>
-                        India</p>
+                        <p class="mb-3">
+                            <strong>VMARS BIOPHARMA</strong>
+                        </p>
+                        <p class="mb-4">
+                            <a href="https://www.google.com/maps/search/?api=1&query=171%2FA%2C+10th+Main%2C+Laggere+Main+Rd%2C+Phase+3%2C+Peenya%2C+Bengaluru%2C+Karnataka+560058" target="_blank" class="text-decoration-none d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                <span>
+                                    171/A, 10th Main, Laggere Main Rd,<br>
+                                    Phase 3, Peenya, Bengaluru,<br>
+                                    Karnataka 560058<br>
+                                    India
+                                </span>
+                                <i class="fas fa-external-link-alt ms-2"></i>
+                            </a>
+                        </p>
                         <p><i class="fas fa-envelope"></i> info@vmarsbio.com</p>
-                        <p><i class="fas fa-phone"></i> +91 88888 88888</p>
+                        <p>
+                            <a href="tel:+919845695161" class="text-decoration-none">
+                                <i class="fas fa-phone"></i> +91 98456 95161
+                            </a>
+                        </p>
+                        <p>
+                            <a href="tel:+919704717711" class="text-decoration-none">
+                                <i class="fas fa-phone"></i> +91 97047 17711
+                            </a>
+                        </p>
                         
                         <div class="social-links">
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -1711,14 +1727,13 @@
         }
 
         let currentSlide = 0;
+        const slidesContainer = document.querySelector('.competency-slides-container');
         const slides = document.querySelectorAll('.competency-slide');
         const dots = document.querySelectorAll('.dot');
 
         function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
+            slidesContainer.style.transform = `translateX(-${index * 100}%)`;
             dots.forEach(dot => dot.classList.remove('active'));
-            
-            slides[index].classList.add('active');
             dots[index].classList.add('active');
             currentSlide = index;
         }
