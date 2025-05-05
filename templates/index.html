@@ -252,22 +252,30 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.6s ease;
             height: 400px;
-            background: white;
+            perspective: 1000px;
+            transform-style: preserve-3d;
         }
 
         .team-image {
             width: 100%;
             height: 100%;
             overflow: hidden;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
         }
 
         .team-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.6s ease;
         }
 
         .team-info {
@@ -277,16 +285,21 @@
             right: 0;
             background: rgba(255, 255, 255, 0.95);
             padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.6s ease;
+        }
+
+        .team-card:hover .team-image {
+            transform: rotateY(180deg);
         }
 
         .team-card:hover .team-info {
-            transform: translateY(0);
-        }
-
-        .team-card:hover .team-image img {
-            transform: scale(1.1);
+            transform: rotateY(0);
         }
 
         .team-info h5 {
@@ -612,7 +625,53 @@
         }
 
         .competency-content {
-            padding: 20px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .competency-content h3 {
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+
+        .competency-content h5, .competency-content h6 {
+            color: var(--heading-color);
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+
+        .competency-content ul li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .competency-content ul li i {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+
+        .competency-content .lead {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .competency-content p {
+            color: var(--body-text);
+            line-height: 1.8;
+        }
+
+        .competency-content .fw-bold {
+            color: var(--heading-color);
+        }
+
+        @media (max-width: 768px) {
+            .competency-content {
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
         }
 
         .competency-navigation {
@@ -1002,6 +1061,62 @@
                 font-size: 2rem;
             }
         }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--heading-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .value-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+        }
+
+        .value-card h4 {
+            color: var(--heading-color);
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .value-card {
+                padding: 1.5rem;
+            }
+            
+            .value-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .value-icon i {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1068,9 +1183,41 @@
         <div class="container">
             <h2 class="text-center section-title" data-aos="fade-up">About Us</h2>
             <div class="row">
-                <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    <p class="lead text-center">Pioneering Biopharmaceutical Excellence</p>
-                    <p class="text-center">VmarsBio Pharma Pvt. Ltd. is at the forefront of biopharmaceutical engineering, specializing in the design and manufacturing of cutting-edge equipment for the pharmaceutical industry.</p>
+                <div class="col-lg-10 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    <p class="lead text-center mb-4">VMARSBio team brings innovation and quality in every stream of biopharmaceutical industrial applications which enhance our customer's focus on their unique products.</p>
+                    <p class="text-center mb-5">Partnering us provides cutting edge latest technology, advanced engineering, reliable quality, ease of operation, consistent outcome which is cost effective. We strive towards achieving excellence in engineering to meet requirements on time and to offer robust solutions.</p>
+                    
+                    <div class="values-section mt-5">
+                        <h3 class="text-center mb-4">Our Values</h3>
+                        <p class="text-center mb-4">VMARSBio believes and ensures our values are brought out in all what we do:</p>
+                        
+                        <div class="row g-4 mt-3">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="value-card text-center">
+                                    <div class="value-icon mb-3">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <h4>Customer Relationship</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                                <div class="value-card text-center">
+                                    <div class="value-icon mb-3">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <h4>Quality in Everything</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                                <div class="value-card text-center">
+                                    <div class="value-icon mb-3">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h4>Success with Team</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1152,39 +1299,37 @@
                         <div class="col-md-6" data-aos="fade-left">
                             <div class="competency-content">
                                 <h3 class="mb-3">Engineering</h3>
-                                <p class="lead mb-3">Cutting-edge engineering solutions for pharmaceutical manufacturing</p>
-                                <p class="mb-4">Our engineering competency encompasses the design and development of advanced pharmaceutical manufacturing systems, from concept to implementation. We leverage innovative technologies and industry best practices to create solutions that optimize production processes, ensure product quality, and meet regulatory requirements.</p>
+                                <p class="lead mb-3">Establishing design requirements are the major task covered under Basic Design.</p>
+                                <p class="mb-4">The Basic design is the preliminary stage, which drive the project from conceptual stage to the detailed design. The design requirements control the design of final project outcome. These include basic things like the functions, attributes, and specifications - determined after assessing user requirement. Design requirements include hard and soft specifications and testability of the same.</p>
                                 
-                                <h5 class="mb-3">Key Capabilities:</h5>
-                                <ul class="list-unstyled mb-4">
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Custom equipment design for pharmaceutical applications</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Process engineering and optimization</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Compliance with international standards</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>ASME BPE and US FDA compliance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="competency-slide" id="automation">
-                    <div class="row align-items-center">
-                        <div class="col-md-6" data-aos="fade-right">
-                            <img src="{{ url_for('static', filename='images/automation.jpg') }}" alt="Process Automation" class="img-fluid rounded shadow">
-                        </div>
-                        <div class="col-md-6" data-aos="fade-left">
-                            <div class="competency-content">
-                                <h3 class="mb-3">Process Automation</h3>
-                                <p class="lead mb-3">Intelligent automation systems for efficient pharmaceutical processes</p>
-                                <p class="mb-4">Our process automation solutions integrate cutting-edge control systems and smart technologies to enhance manufacturing efficiency, ensure consistent product quality, and reduce operational costs. We specialize in developing customized automation strategies that align with your specific production requirements.</p>
-                                
-                                <h5 class="mb-3">Key Capabilities:</h5>
-                                <ul class="list-unstyled mb-4">
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Advanced control systems integration</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Real-time monitoring and data analytics</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Automated process optimization</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Smart manufacturing solutions</li>
-                                </ul>
+                                <h5 class="mb-3">Deliverables of Basic Design:</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Project Execution & Management</h6>
+                                        <ul class="list-unstyled mb-4">
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Project Quality Plan</li>
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Project Schedule</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Process Design & Engineering</h6>
+                                        <ul class="list-unstyled mb-4">
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Process Flow Diagram</li>
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Piping & Instrumentation Diagram</li>
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Major Component List</li>
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Piping Specs</li>
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Vessel Design Specs</li>
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Automation Architecture</li>
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>System Layout</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Automation Design & Engineering</h6>
+                                        <ul class="list-unstyled mb-4">
+                                            <li><i class="fas fa-check-circle text-primary me-2"></i>Hardware & Software Design Specs</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1198,16 +1343,27 @@
                         <div class="col-md-6" data-aos="fade-left">
                             <div class="competency-content">
                                 <h3 class="mb-3">Project Management</h3>
-                                <p class="lead mb-3">Comprehensive project management for seamless implementation</p>
-                                <p class="mb-4">Our project management expertise ensures the successful delivery of complex pharmaceutical manufacturing projects. We employ industry-leading methodologies and tools to manage timelines, resources, and quality standards, ensuring your projects are completed on time and within budget.</p>
-                                
-                                <h5 class="mb-3">Key Capabilities:</h5>
-                                <ul class="list-unstyled mb-4">
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>End-to-end project lifecycle management</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Risk assessment and mitigation</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Resource optimization and scheduling</li>
-                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Quality assurance and compliance</li>
-                                </ul>
+                                <p class="lead mb-3">Our objective is to make successful projects which comply with the client's objectives.</p>
+                                <p class="mb-4">We are specialized in leading and integrating the work of cross functional teams and other stake holders in an organized way to achieve goals and meet success criteria at a specified time. We understand the constraints and plan the necessary to achieve all of the project goals accordingly. We Predict and Prevent delays. Our team is proactive and resilient!</p>
+                                <p class="mb-4">All the five phases of project lifecycle; initiation, planning, execution, monitoring, and closure are safer in our hands with the application of most brilliant project management tools.</p>
+                                <p class="mb-4 fw-bold">Your Success is our Success!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competency-slide" id="automation">
+                    <div class="row align-items-center">
+                        <div class="col-md-6" data-aos="fade-right">
+                            <img src="{{ url_for('static', filename='images/automation.jpg') }}" alt="Process Automation" class="img-fluid rounded shadow">
+                        </div>
+                        <div class="col-md-6" data-aos="fade-left">
+                            <div class="competency-content">
+                                <h3 class="mb-3">Process Automation</h3>
+                                <p class="lead mb-3">Our Automation Solution provides the perfect blend between the user and equipment interface.</p>
+                                <p class="mb-4">Real time monitoring and reproducible process analysis is the core of automation solution. All the Software is built as per ISA 88 (S88) standards and each stage of automation development strictly adhere to 21 CFR Part 11 and GAMP5 criteria to make sure that the solution provided on par with the global standards.</p>
+                                <p class="mb-4">The Solution could be tailor made in semiautomatic or automatic way as per the requirements, for a standalone system or for a full fledged plant wide automation. The foundation of each solution is perfectly laid, to make sure that ease of operation at stand alone system level to full flexibility to integrate and ease of operation at higher level of automation such as DCS and MES systems.</p>
+                                <p class="mb-4">The Integration of our Automation concept to other Systems/Programs using quite a few communication protocols is a seamless task.</p>
                             </div>
                         </div>
                     </div>
