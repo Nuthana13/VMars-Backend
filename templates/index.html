@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VmarsBio Pharma - Engineering the Future of Pharmaceuticals</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --heading-color: #003e78;
+            --accent-color: #00c6a2;
+            --accent-color-2: #00e6b3;
+            --body-text: #333333;
+            --light-text: #666666;
+            --background-color: #c5e1f0;
+            --background-light: #a8d4e8;
+            --cta-primary: #007dfc;
+        }
+
+        html {
+            min-height: 100%;
+            background: linear-gradient(135deg, var(--background-color) 0%, var(--background-light) 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--body-text);
+            line-height: 1.6;
+            font-weight: 400;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, var(--background-color) 0%, var(--background-light) 100%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            color: var(--heading-color);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        .text-accent {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--heading-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        p {
+            color: var(--body-text);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--body-text);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--heading-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .card, .team-card, .competency-card, .product-card, .service-card {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .card-title {
+            color: var(--heading-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: var(--body-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--heading-color) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .btn {
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--heading-color);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--heading-color);
+            color: var(--heading-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--heading-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .feature-item {
+            font-weight: 500;
+            color: var(--body-text);
+        }
+
+        .feature-item i {
+            color: var(--accent-color);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.85);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.75) 100%);
+            z-index: -1;
+        }
+
+        footer h5 {
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+
+        footer a {
+            color: var(--body-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links a {
+            color: var(--heading-color);
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+        }
+
+        .radiant-heading {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-stroke: 0.5px rgba(255,255,255,0.8);
+            text-shadow: 0 1px 2px rgba(255,255,255,0.4);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+            position: relative;
+            background: linear-gradient(135deg, var(--background-color) 0%, var(--background-light) 100%);
+        }
+
+        .section-padding::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: -1;
+        }
+
+        .team-member {
+            margin-bottom: 30px;
+        }
+
+        .team-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.6s ease;
+            height: 400px;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .team-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.6s ease;
+        }
+
+        .team-card:hover .team-image {
+            transform: rotateY(180deg);
+        }
+
+        .team-card:hover .team-info {
+            transform: rotateY(0);
+        }
+
+        .team-info h5 {
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+
+        .team-info p {
+            margin-bottom: 5px;
+            color: var(--body-text);
+        }
+
+        .team-info .small {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .team-card {
+                height: 350px;
+            }
+        }
+
+        .competency-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .competency-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .competency-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .competency-card h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .competency-card .lead {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .competency-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section {
+            background: transparent;
+            position: relative;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-control {
+            border: 2px solid #eee;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: none;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 1rem;
+        }
+
+        .navbar {
+            background: transparent !important;
+            backdrop-filter: none;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            height: auto;
+            min-height: 80px;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin-right: 2rem;
+            height: 100%;
+        }
+
+        .navbar-brand:hover .logo-img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+        }
+
+        .logo-img {
+            height: 85px;
+            width: auto;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            object-fit: contain;
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .logo-img {
+                height: 75px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 65px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-img {
+                height: 55px;
+            }
+        }
+
+        .bg-light {
+            background-color: var(--background-light) !important;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0;
+            position: relative;
+            background: linear-gradient(135deg, rgba(197, 225, 240, 0.3) 0%, rgba(168, 212, 232, 0.3) 100%);
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none;
+            filter: brightness(1.4) contrast(1.05) saturate(1.1);
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 1;
+            background: transparent;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .hero-heading {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 4.5rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+            color: #000000;
+        }
+
+        .hero-heading .text-black {
+            color: #000000;
+            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-subheading {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #000000;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn-hero-primary {
+            background: rgba(0, 0, 0, 0.9);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .btn-hero-secondary {
+            background: rgba(0, 0, 0, 0.2);
+            color: #000000;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: 2px solid rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-hero-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .hero-heading {
+                font-size: 3rem;
+            }
+            
+            .hero-subheading {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .btn-hero-primary,
+            .btn-hero-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        .bg-custom-light {
+            background-color: var(--background-light) !important;
+        }
+
+        .bg-custom-blue {
+            background-color: var(--background-color) !important;
+        }
+
+        #about, #competencies, #services {
+            background-color: var(--background-light);
+        }
+
+        #products {
+            background-color: var(--background-color);
+        }
+
+        .section-padding, .card, .team-card, .competency-card, .product-card, .service-card, .contact-form {
+            transition: background-color 0.3s ease;
+        }
+
+        .competency-carousel {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .competency-slides-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .competency-slide {
+            min-width: 100%;
+            opacity: 1;
+            display: block;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .competency-slide .row {
+            align-items: center;
+            height: 100%;
+        }
+
+        .competency-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .competency-content {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .competency-content h3 {
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+
+        .competency-content h5, .competency-content h6 {
+            color: var(--heading-color);
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+
+        .competency-content ul li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .competency-content ul li i {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+
+        .competency-content .lead {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .competency-content p {
+            color: var(--body-text);
+            line-height: 1.8;
+        }
+
+        .competency-content .fw-bold {
+            color: var(--heading-color);
+        }
+
+        @media (max-width: 768px) {
+            .competency-slide img {
+                height: 300px;
+                margin-bottom: 20px;
+            }
+            
+            .competency-content {
+                max-height: none;
+                overflow-y: visible;
+            }
+        }
+
+        .competency-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: var(--heading-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .nav-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--heading-color);
+            transform: scale(1.2);
+        }
+
+        .products-container {
+            position: relative;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e9f7 100%);
+            border-radius: 20px;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .product-item {
+            margin-bottom: 100px;
+            position: relative;
+            padding: 20px;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease;
+        }
+
+        .product-item:nth-child(even) {
+            transform: translateX(100px);
+        }
+
+        .product-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .product-image-frame {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+            position: relative;
+            transform: scale(0.95);
+        }
+
+        .product-item.active .product-image-frame {
+            transform: scale(1);
+        }
+
+        .product-image-frame::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--heading-color);
+            border-radius: 15px;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .product-item:hover .product-image-frame::after {
+            opacity: 0.4;
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .product-item:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: 100%;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(5px);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .product-item.active .product-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .product-item:hover .product-content {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-content h3 {
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .product-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .product-item:hover .product-content h3::after {
+            width: 100px;
+        }
+
+        .product-content .lead {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .product-content ul li {
+            margin-bottom: 10px;
+            transform: translateX(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .product-item.active .product-content ul li {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .product-item.active .product-content ul li:nth-child(1) { transition-delay: 0.1s; }
+        .product-item.active .product-content ul li:nth-child(2) { transition-delay: 0.2s; }
+        .product-item.active .product-content ul li:nth-child(3) { transition-delay: 0.3s; }
+
+        .compliance-badges {
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .product-item.active .compliance-badges {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .product-item {
+                margin-bottom: 60px;
+                padding: 15px;
+            }
+
+            .product-image-frame {
+                height: 300px;
+                margin-bottom: 30px;
+            }
+
+            .product-content {
+                padding: 30px;
+            }
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 62, 120, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--heading-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--heading-color), var(--accent-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover .service-icon::after {
+            opacity: 1;
+        }
+
+        .service-icon i {
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon i {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--heading-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .service-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            transition: width 0.4s ease;
+        }
+
+        .service-card:hover h3::after {
+            width: 100px;
+        }
+
+        .service-card p {
+            color: var(--body-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-card ul li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            color: var(--body-text);
+            transition: all 0.3s ease;
+        }
+
+        .service-card ul li i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover ul li {
+            transform: translateX(5px);
+        }
+
+        .service-card:hover ul li i {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                padding: 2rem;
+            }
+
+            .service-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .service-icon i {
+                font-size: 2rem;
+            }
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--heading-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .value-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+        }
+
+        .value-card h4 {
+            color: var(--heading-color);
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .value-card {
+                padding: 1.5rem;
+            }
+            
+            .value-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .value-icon i {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='images/png-01.png') }}" 
+                     alt="VmarsBio Pharma Logo" 
+                     class="logo-img"
+                     style="max-width: 100%;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#about">About Us</a></li>
+                            <li><a class="dropdown-item" href="#competencies">Competencies</a></li>
+                            <li><a class="dropdown-item" href="#products">Products</a></li>
+                            <li><a class="dropdown-item" href="#services">Services</a></li>
+                            <li><a class="dropdown-item" href="#contact">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <video class="video-background" autoplay muted loop playsinline preload="auto">
+            <source src="{{ url_for('static', filename='videos/video.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container" data-aos="fade-up">
+            <h1 class="hero-heading">
+                <span class="text-black">Engineering</span><br>
+                <span class="text-black">the Future</span><br>
+                <span class="text-black">of</span> <span class="text-black">Pharmaceuticals</span>
+            </h1>
+            <p class="hero-subheading">
+                VmarsBio Pharma delivers cutting-edge engineering solutions for the biopharmaceutical industry, 
+                designed to meet the highest quality standards and regulatory requirements.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-hero-primary">
+                    <i class="fas fa-envelope me-2" style="color: var(--heading-color);"></i>Get in Touch
+                </a>
+                <a href="#products" class="btn btn-hero-secondary">
+                    <i class="fas fa-box-open me-2" style="color: var(--heading-color);"></i>Explore Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">About Us</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    <p class="lead text-center mb-4">VMARSBio team brings innovation and quality in every stream of biopharmaceutical industrial applications which enhance our customer's focus on their unique products.</p>
+                    <p class="text-center mb-5">Partnering us provides cutting edge latest technology, advanced engineering, reliable quality, ease of operation, consistent outcome which is cost effective. We strive towards achieving excellence in engineering to meet requirements on time and to offer robust solutions.</p>
+                    
+                    <div class="values-section mt-5">
+                        <h3 class="text-center mb-4">Our Values</h3>
+                        <p class="text-center mb-4">VMARSBio believes and ensures our values are brought out in all what we do:</p>
+                        
+                        <div class="row g-4 mt-3">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="value-card text-center">
+                                    <div class="value-icon mb-3">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <h4>Customer Relationship</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                                <div class="value-card text-center">
+                                    <div class="value-icon mb-3">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <h4>Quality in Everything</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                                <div class="value-card text-center">
+                                    <div class="value-icon mb-3">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h4>Success with Team</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Board of Conductors</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="{{ url_for('static', filename='images/sujith.jpg') }}" alt="Sujith" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h5 class="card-title">Sujith</h5>
+                            <p class="card-text fw-bold">Co-Founder & Managing Director</p>
+                            <p class="text-muted mb-3">Business Development</p>
+                            <p class="small">With over 15 years of experience in the pharmaceutical industry, Sujith leads our business development initiatives and strategic partnerships, ensuring our solutions align with market needs and client expectations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="{{ url_for('static', filename='images/milash.jpg') }}" alt="Milash" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h5 class="card-title">Milash</h5>
+                            <p class="card-text fw-bold">Co-Founder & Director</p>
+                            <p class="text-muted mb-3">Project Execution & Management</p>
+                            <p class="small">Milash oversees our project execution and management, bringing technical expertise and operational excellence to ensure timely delivery and successful implementation of our solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="{{ url_for('static', filename='images/senthil.jpg') }}" alt="Senthil" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h5 class="card-title">Senthil</h5>
+                            <p class="card-text fw-bold">Co-Founder & Director</p>
+                            <p class="text-muted mb-3">Process Design & Engineering</p>
+                            <p class="small">With a deep understanding of pharmaceutical processes, Senthil leads our process design and engineering team, developing innovative solutions that optimize manufacturing workflows and ensure product quality.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 team-member" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="{{ url_for('static', filename='images/mahesh.jpg') }}" alt="Mahesh ST" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h5 class="card-title">Mahesh ST</h5>
+                            <p class="card-text fw-bold">Co-Founder & Director</p>
+                            <p class="text-muted mb-3">Automation Design & Engineering</p>
+                            <p class="small">Mahesh ST leads our automation design and engineering initiatives, bringing expertise in developing cutting-edge automation solutions for pharmaceutical manufacturing processes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competencies Section -->
+    <section id="competencies" class="section-padding">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Core Competencies</h2>
+            <p class="text-center lead mb-5" data-aos="fade-up" data-aos-delay="100">Expertise That Drives Innovation</p>
+            
+            <div class="competency-carousel">
+                <div class="competency-slides-container">
+                    <div class="competency-slide" id="engineering">
+                        <div class="row align-items-center">
+                            <div class="col-md-6" data-aos="fade-right">
+                                <img src="{{ url_for('static', filename='images/engineering.jpg') }}" alt="Engineering" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-6" data-aos="fade-left">
+                                <div class="competency-content">
+                                    <h3 class="mb-3">Engineering</h3>
+                                    <p class="lead mb-3">Establishing design requirements are the major task covered under Basic Design.</p>
+                                    <p class="mb-4">The Basic design is the preliminary stage, which drive the project from conceptual stage to the detailed design. The design requirements control the design of final project outcome. These include basic things like the functions, attributes, and specifications - determined after assessing user requirement. Design requirements include hard and soft specifications and testability of the same.</p>
+                                    
+                                    <h5 class="mb-3">Deliverables of Basic Design:</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Project Execution & Management</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Project Quality Plan</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Project Schedule</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Process Design & Engineering</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Process Flow Diagram</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Piping & Instrumentation Diagram</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Major Component List</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Piping Specs</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Vessel Design Specs</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Automation Architecture</li>
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>System Layout</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Automation Design & Engineering</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li><i class="fas fa-check-circle text-primary me-2"></i>Hardware & Software Design Specs</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competency-slide" id="management">
+                        <div class="row align-items-center">
+                            <div class="col-md-6" data-aos="fade-right">
+                                <img src="{{ url_for('static', filename='images/management.jpg') }}" alt="Project Management" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-6" data-aos="fade-left">
+                                <div class="competency-content">
+                                    <h3 class="mb-3">Project Management</h3>
+                                    <p class="lead mb-3">Our objective is to make successful projects which comply with the client's objectives.</p>
+                                    <p class="mb-4">We are specialized in leading and integrating the work of cross functional teams and other stake holders in an organized way to achieve goals and meet success criteria at a specified time. We understand the constraints and plan the necessary to achieve all of the project goals accordingly. We Predict and Prevent delays. Our team is proactive and resilient!</p>
+                                    <p class="mb-4">All the five phases of project lifecycle; initiation, planning, execution, monitoring, and closure are safer in our hands with the application of most brilliant project management tools.</p>
+                                    <p class="mb-4 fw-bold">Your Success is our Success!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competency-slide" id="automation">
+                        <div class="row align-items-center">
+                            <div class="col-md-6" data-aos="fade-right">
+                                <img src="{{ url_for('static', filename='images/automation.jpg') }}" alt="Process Automation" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-6" data-aos="fade-left">
+                                <div class="competency-content">
+                                    <h3 class="mb-3">Process Automation</h3>
+                                    <p class="lead mb-3">Our Automation Solution provides the perfect blend between the user and equipment interface.</p>
+                                    <p class="mb-4">Real time monitoring and reproducible process analysis is the core of automation solution. All the Software is built as per ISA 88 (S88) standards and each stage of automation development strictly adhere to 21 CFR Part 11 and GAMP5 criteria to make sure that the solution provided on par with the global standards.</p>
+                                    <p class="mb-4">The Solution could be tailor made in semiautomatic or automatic way as per the requirements, for a standalone system or for a full fledged plant wide automation. The foundation of each solution is perfectly laid, to make sure that ease of operation at stand alone system level to full flexibility to integrate and ease of operation at higher level of automation such as DCS and MES systems.</p>
+                                    <p class="mb-4">The Integration of our Automation concept to other Systems/Programs using quite a few communication protocols is a seamless task.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competency-navigation">
+                    <button class="nav-btn prev-btn" onclick="changeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="nav-dots">
+                        <span class="dot active" onclick="goToSlide(0)"></span>
+                        <span class="dot" onclick="goToSlide(1)"></span>
+                        <span class="dot" onclick="goToSlide(2)"></span>
+                    </div>
+                    <button class="nav-btn next-btn" onclick="changeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Our Products</h2>
+            <p class="text-center lead mb-5" data-aos="fade-up" data-aos-delay="100">Innovative Pharmaceutical Equipment</p>
+            
+            <div class="products-container">
+                <!-- Fermenters & Bioreactors -->
+                <div class="product-item" data-aos="fade-right">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="product-image-frame">
+                                <img src="{{ url_for('static', filename='images/bioreactors.jpg') }}" alt="Fermenters & Bioreactors" class="product-image">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-content">
+                                <h3>Fermenters & Bioreactors</h3>
+                                <p class="lead">Advanced fermentation systems for biological manufacturing</p>
+                                <p>Our state-of-the-art fermenters and bioreactors are designed for optimal microbial and cell culture performance.</p>
+                                <h5>Key Features:</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Customizable vessel sizes (10L to 10,000L)</li>
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Advanced process control systems</li>
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>SIP & CIP capabilities</li>
+                                </ul>
+                                <div class="compliance-badges">
+                                    <span class="badge bg-primary me-2">ASME BPE</span>
+                                    <span class="badge bg-primary me-2">US FDA</span>
+                                    <span class="badge bg-primary me-2">CGMP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtration & Purification Skid -->
+                <div class="product-item" data-aos="fade-left">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 order-md-2">
+                            <div class="product-image-frame">
+                                <img src="{{ url_for('static', filename='images/filtration.jpg') }}" alt="Filtration & Purification" class="product-image">
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <div class="product-content">
+                                <h3>Filtration & Purification Skid</h3>
+                                <p class="lead">High-efficiency filtration systems for pharmaceutical processes</p>
+                                <p>Our filtration and purification skids offer high-performance separation capabilities with advanced membrane technologies.</p>
+                                <h5>Key Features:</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Micro/Ultra/Nano filtration options</li>
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Fully automated operation</li>
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Integrated CIP/SIP capabilities</li>
+                                </ul>
+                                <div class="compliance-badges">
+                                    <span class="badge bg-primary me-2">ASME BPE</span>
+                                    <span class="badge bg-primary me-2">US FDA</span>
+                                    <span class="badge bg-primary me-2">ISO 9001</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Vessels -->
+                <div class="product-item" data-aos="fade-right">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="product-image-frame">
+                                <img src="{{ url_for('static', filename='images/vessel.jpg') }}" alt="Process Vessels" class="product-image">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-content">
+                                <h3>Process Vessels</h3>
+                                <p class="lead">High-quality vessels for pharmaceutical processing</p>
+                                <p>Our process vessels are engineered for optimal performance with precision-crafted designs and high-quality materials.</p>
+                                <h5>Key Features:</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>316L stainless steel construction</li>
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Electropolished surfaces</li>
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Full validation documentation</li>
+                                </ul>
+                                <div class="compliance-badges">
+                                    <span class="badge bg-primary me-2">ASME BPE</span>
+                                    <span class="badge bg-primary me-2">US FDA</span>
+                                    <span class="badge bg-primary me-2">ASME Section VIII</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CIP & SIP Skids -->
+                <div class="product-item" data-aos="fade-left">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 order-md-2">
+                            <div class="product-image-frame">
+                                <img src="{{ url_for('static', filename='images/cip.jpg') }}" alt="CIP & SIP Skids" class="product-image">
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <div class="product-content">
+                                <h3>CIP & SIP Skids</h3>
+                                <p class="lead">Efficient cleaning and sterilization systems</p>
+                                <p>Our CIP and SIP skids deliver reliable, automated cleaning and sterilization capabilities for pharmaceutical equipment.</p>
+                                <h5>Key Features:</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Fully automated operation</li>
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Recipe-based cycles</li>
+                                    <li><i class="fas fa-check-circle text-primary me-2"></i>Resource optimization</li>
+                                </ul>
+                                <div class="compliance-badges">
+                                    <span class="badge bg-primary me-2">ASME BPE</span>
+                                    <span class="badge bg-primary me-2">US FDA</span>
+                                    <span class="badge bg-primary me-2">EHEDG</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Our Services</h2>
+            <p class="text-center lead mb-5" data-aos="fade-up" data-aos-delay="100">Comprehensive Solutions for Your Needs</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="mb-3">Installation & Commissioning</h3>
+                        <p class="mb-4">Professional installation and commissioning services for all our equipment, ensuring optimal performance and regulatory compliance.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>Expert installation team</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>Comprehensive testing</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>Performance validation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3 class="mb-3">Maintenance & Support</h3>
+                        <p class="mb-4">Regular maintenance and technical support services to ensure continuous operation and extend equipment lifespan.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>Preventive maintenance</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>24/7 technical support</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>Spare parts availability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="mb-3">Training & Documentation</h3>
+                        <p class="mb-4">Comprehensive training programs and detailed documentation for your team to ensure proper operation and maintenance.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>Operator training</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>Technical documentation</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i>Compliance guidelines</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Get in Touch</h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <p class="mb-3">
+                            <strong>VMARS BIOPHARMA</strong>
+                        </p>
+                        <p class="mb-4">
+                            <a href="https://www.google.com/maps/search/?api=1&query=171%2FA%2C+10th+Main%2C+Laggere+Main+Rd%2C+Phase+3%2C+Peenya%2C+Bengaluru%2C+Karnataka+560058" target="_blank" class="text-decoration-none d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                <span>
+                                    171/A, 10th Main, Laggere Main Rd,<br>
+                                    Phase 3, Peenya, Bengaluru,<br>
+                                    Karnataka 560058<br>
+                                    India
+                                </span>
+                                <i class="fas fa-external-link-alt ms-2"></i>
+                            </a>
+                        </p>
+                        <p><i class="fas fa-envelope"></i> info@vmarsbio.com</p>
+                        <p>
+                            <a href="tel:+919845695161" class="text-decoration-none">
+                                <i class="fas fa-phone"></i> +91 98456 95161
+                            </a>
+                        </p>
+                        <p>
+                            <a href="tel:+919704717711" class="text-decoration-none">
+                                <i class="fas fa-phone"></i> +91 97047 17711
+                            </a>
+                        </p>
+                        
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-form">
+                        <form id="contactForm" onsubmit="return submitForm(event)">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name *</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="fas fa-flask me-2"></i>VmarsBio Pharma</h5>
+                    <p>Pioneering biopharmaceutical engineering solutions with precision, innovation, and quality.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#products"><i class="fas fa-chevron-right me-2"></i>Products</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right me-2"></i>About Us</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right me-2"></i>Services</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right me-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 VmarsBio Pharma Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                navbar.style.padding = '0.5rem 0';
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.style.padding = '1rem 0';
+            }
+        });
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            fetch('/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert('Message sent successfully!');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    alert('Error sending message. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error sending message. Please try again.');
+            });
+
+            return false;
+        }
+
+        let currentSlide = 0;
+        const slidesContainer = document.querySelector('.competency-slides-container');
+        const slides = document.querySelectorAll('.competency-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function changeSlide(direction) {
+            let newIndex = currentSlide + direction;
+            if (newIndex >= slides.length) {
+                newIndex = 0;
+            } else if (newIndex < 0) {
+                newIndex = slides.length - 1;
+            }
+            showSlide(newIndex);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const productIcons = document.querySelectorAll('.product-icon');
+            const productContents = document.querySelectorAll('.product-content');
+
+            productIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    const productId = this.getAttribute('data-product');
+                    
+                    // Hide all content
+                    productContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show selected content
+                    document.getElementById(productId).classList.add('active');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const productItems = document.querySelectorAll('.product-item');
+            
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            productItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html> 
