@@ -1,5 +1,6 @@
 # VmarsBio Pharma Website
 
+<<<<<<< HEAD
 This is the official website for VmarsBio Pharma, built with Flask and Bootstrap.
 
 ## Deployment Instructions
@@ -96,6 +97,33 @@ vmarsbio/
 
 ## Contact
 For support or questions, contact info@vmarsbio.com
+=======
+This is the official website for VmarsBio Pharma, featuring a modern design and contact form functionality.
+
+## Setup Instructions
+
+1. Create a virtual environment (recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Configure email settings:
+   - Update the `EMAIL_USER` and `EMAIL_PASS` variables in `app.py` with your Gmail credentials
+   - Make sure to use an App Password if you have 2-factor authentication enabled
+
+4. Run the application:
+```bash
+python app.py
+```
+
+5. Open your browser and navigate to `http://localhost:5000`
+>>>>>>> 5e0e5fca3859d5709dbbc96e073ca4e29fc91a2c
 
 ## Features
 
